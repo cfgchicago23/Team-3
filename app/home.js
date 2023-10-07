@@ -15,7 +15,7 @@ function Home() {
         </Text>
 
         {/* Login Button */}
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity zstyle={styles.loginButton}>
           <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
       </ImageBackground>

@@ -1,74 +1,88 @@
-import React from 'react';
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, FlatList, Text, Button, Linking, StyleSheet, SafeAreaView,TouchableOpacity, } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
-function Home() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ImageBackground source={require('../assets/background.png')} style={styles.backgroundImage}>
-        {/* Header */}
-        <Text style={styles.headerText}>ThriveForGirls</Text>
-
-        {/* Main Content */}
-        <Text style={styles.title}>Love. Create. Share.</Text>
-        <Text style={styles.description}>
-        Empower provides young girls with the tools they need to build healthy and lasting friendships. We work with girls to help them rise up beyond their circumstances, become role models in their communities, and learn how to recognize abuse and exploitation. 
-        </Text>
-
-        {/* Login Button */}
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginText}>Log In</Text>
-        </TouchableOpacity>
-      </ImageBackground>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  backgroundImage: {
-    flex: 1,
-    paddingHorizontal: 30, // Increased padding 
-    justifyContent: 'center',
-  },
-  headerText: {
-    fontSize: 36,
-    fontWeight: '900', // Bolder
-    textAlign: 'center',
-    marginTop: 60, // More spacing
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: '700', 
-    textAlign: 'center',
-    marginTop: 60,
-  },
-  description: {
-    marginTop: 30,
-    fontSize: 18,
-    textAlign: 'center',
-    lineHeight: 26,  // Spacing between lines
-  },
-  loginButton: {
-    marginTop: 90,
-    backgroundColor: '#E74C3C',  // Slightly different shade of red
-    padding: 16,
-    borderRadius: 50,  // Full rounded edges
-    alignItems: 'center',
-    alignSelf: 'center',
-    width: '60%',  // Less width
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  loginText: {
-    color: '#fff',
-    fontWeight: '600',  // Slightly less bold
-    fontSize: 18  // Bigger font size
-  },
-});
-
-export default Home;
+export default function FindClub ()  {
+    const clubTable= [
+      { id: 1, name: 'Thrive for Girls', city: 'New York', country: 'USA' },
+      { id: 2, name: 'Thrive for Girls', city: 'Toronto', country: 'Canada' },
+      { id: 3, name: 'Thrive for Girls', city: 'Falkirk', country: 'Scotland' },
+      // Add more locations as needed
+    ];
+  
+    const ClubLocations = () => {
+      const [searchText, setSearchText] = useState('');
+      const filteredLocations = clubLocations.filter(location =>
+        location.city.toLowerCase().includes(searchText.toLowerCase())
+      );
+      return (
+        <SafeAreaView style={styles.container}>
+          <TextInput
+            placeholder="Search by city"
+            value={searchText}
+            onChangeText={text => setSearchText(text)}
+          />
+          <FlatList
+            data={filteredLocations}
+            keyExtractor={item => item.id.toString()}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{`${item.name} - ${item.city}, ${item.country}`}</Text>
+              </View>
+            )}
+          />
+        </SafeAreaView>
+      );
+  
+      }
+  }
+  
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    backgroundImage: {
+      flex: 1,
+      // backgroundColor: '#808080',
+      paddingHorizontal: 30, // Increased padding 
+      justifyContent: 'center',
+    },
+    headerText: {
+      fontSize: 36,
+      fontWeight: '900', // Bolder
+      textAlign: 'center',
+      marginTop: 60, // More spacing
+    },
+    title: {
+      fontSize: 30,
+      fontWeight: '700', 
+      textAlign: 'center',
+      marginTop: 60,
+    },
+    description: {
+      marginTop: 30,
+      fontSize: 18,
+      textAlign: 'center',
+      lineHeight: 26,  // Spacing between lines
+    },
+    Button: {
+      marginTop: 90,
+      backgroundColor: '#ffb6c1',  // Slightly different shade of red
+      padding: 16,
+      borderRadius: 50,  // Full rounded edges
+      alignItems: 'center',
+      alignSelf: 'center',
+      width: '60%',  // Less width
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5
+    },
+    ButtonText: {
+      color: '#808080',
+      fontWeight: '600',  // Slightly less bold
+      fontSize: 18  // Bigger font size
+    },
+  });
