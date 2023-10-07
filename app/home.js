@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   description: {
-    fontSize: '16',
+    fontSize: 16,
   },
   descriptionContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0.75)',  // Semi-transparent white
