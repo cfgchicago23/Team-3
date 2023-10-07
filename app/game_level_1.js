@@ -20,7 +20,7 @@ export default function App() {
         <Image
             style={styles.arrow}
             source={require('../assets/right-arrow.png')}
-        />
+        /><Link href="/game_level_1_pg_2">Submit</Link>
     </View>
   );
 }
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7eed4',
         padding: '20%',
         margin: '10%',
-        fontSize: '20',
+        fontSize: 20,
     },
     // "Next" arrow styling
     arrow: {
