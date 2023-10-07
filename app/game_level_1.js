@@ -1,32 +1,35 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, Image, ScrollView, Animated, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-
 
 export default function App() {
   return (
     <View style={styles.container}>
         {/* Title text */}
-        <Text style={styles.game_level_1_pg_2_title}>Level 1</Text>
+        <Text style={styles.game_level_1_title}>Welcome to Level 1!</Text>
         <StatusBar style="auto" />
         {/* Back button */}
-        <View style={styles.back_button}>
-            <Link href="/game_level_1">Back</Link>
-        </View>
+        <Link href="/game_levels">Back</Link>
         {/* Translucent background text */}
         <View>
-        <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
+            <Text style={styles.text_shaded}>Help Jan navigate her feelings!</Text>
         </View>
+        <Image
+            style={styles.girl}
+            source={require('../assets/Girl.png')}
+        />
         {/* Forward arrow */}
         <Image
             style={styles.arrow}
             source={require('../assets/right-arrow.png')}
-        /><Link href="/test">Submit</Link>
+        />
+    
+        <Link href="/test">Next</Link>
+
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
     // Background styling
@@ -37,20 +40,25 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-top',
     },
     // Title styling
-    game_level_1_pg_2_title: {
-        marginTop: '10%',
+    game_level_1_title: {
+        marginTop: '30%',
         fontSize: 40,
         fontWeight: '100',
     },
-
-    // Text + translucent box styling
+    // Text + translucent box styling 
     text_shaded: {
         backgroundColor: '#f7eed4',
-        padding: '10%',
-        margin: '20%',
-        left: '30%',
-        bottom: '5%',
+        padding: '20%',
+        margin: '10%',
         fontSize: 20,
+    },
+    // Girl image styling
+    girl: {
+        width: '25%',
+        height: '32%',
+        position: 'absolute',
+        left: '70%',
+        top: '50%',
     },
     // "Next" arrow styling
     arrow: {
@@ -68,5 +76,3 @@ const styles = StyleSheet.create({
         fontWeight: '100',
     }
 });
-
-
