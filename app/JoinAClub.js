@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: '700',
     marginBottom: 50,
-    color: '#34495E',
+    color: '#413626',
     textAlign: 'center'
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f0ead6ff',
     padding: 15,
     borderRadius: 10,
     width: '100%',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   button: {
-    backgroundColor: '#E74C3C',
+    backgroundColor: '#e39cbc',
     padding: 16,
     borderRadius: 50,
     width: '100%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   buttonText: {
-    color: '#fff',
+    color: '#413626',
     fontWeight: '600',
     fontSize: 18
   },

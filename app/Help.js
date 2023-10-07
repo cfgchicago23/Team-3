@@ -18,6 +18,33 @@ export default function EmergentHelp ()  {
     const url = `sms:${smsNumber}${separator}body=${message}`
     Linking.openURL(url)
   };
+
+    const AboutHumanTraffickingChart = () => {
+    const pdf1Url = 'https://www.daughterproject.org/_files/ugd/b3c82c_b20873b9c6b640308f5d2c3a333a015f.pdf';
+    Linking.openURL(pdf1Url);
+  };
+  
+  const TheoryOfChange = () => {
+    const pdf2Url = 'https://www.daughterproject.org/_files/ugd/b3c82c_b8320ae1d7054a5aa3d9a7b7fd1e42bd.pdf';
+    Linking.openURL(pdf2Url);
+  };
+
+  const sendEmail = () => {
+    const email = 'info@myglobalfamily.org'; 
+    const subject = 'Subject of the email'; 
+  
+    const url = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+  
+    Linking.openURL(url)
+      .then(() => {
+        console.log(`Opened email client to send email to ${email}`);
+      })
+      .catch((err) => {
+        console.error('Error opening email client:', err);
+      });
+  };
+
+  
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.headerText}>Resources for Emergent Help</Text>
@@ -27,6 +54,19 @@ export default function EmergentHelp ()  {
         <TouchableOpacity style={styles.Button} onPress={textHotline}>
           <Text style={styles.ButtonText}>Text for help NOW</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.Button} onPress={sendEmail}>
+  <Text style={styles.ButtonText}>Contact Global Family Care Network</Text>
+</TouchableOpacity>
+
+      <TouchableOpacity style={styles.Button} onPress={AboutHumanTraffickingChart}>
+    <Text style={styles.ButtonText}>About Human Trafficking Chart</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.Button} onPress={TheoryOfChange}>
+    <Text style={styles.ButtonText}>Theory of Change</Text>
+    </TouchableOpacity>
+    
+
     </SafeAreaView>
   );
 }
