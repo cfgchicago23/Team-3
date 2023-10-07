@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30, // Increased padding 
     justifyContent: 'center',
+    fontWeight: '100',
   },
   headerText: {
     fontSize: 36,
