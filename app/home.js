@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,  // Some spacing before the button
   },
   loginButton: {
-    marginTop: 90,
+    marginTop: 10,
     backgroundColor: '#E74C3C',  // Slightly different shade of red
     padding: 16,
     borderRadius: 50,  // Full rounded edges
