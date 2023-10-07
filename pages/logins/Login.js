@@ -13,6 +13,7 @@ import {
     browserSessionPersistence
 } from "firebase/auth";
 
+// test
 const auth = getAuth();
 const db = getDatabase();
 
