@@ -2,16 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, initializeAuth, getReactNativePersistence } from "firebase/auth"
 import { getDatabase } from "firebase/database"
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-//import 'dotenv/config';
-// import { 
-//     REACT_APP_FIREBASE_API_KEY, 
-//     REACT_APP_FIREBASE_AUTH_DOMAIN, 
-//     REACT_APP_FIREBASE_PROJECT_ID, 
-//     REACT_APP_FIREBASE_STORAGE_BUCKET,
-//     REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-//     REACT_APP_FIREBASE_APP_ID,
-//     REACT_APP_FIREBASE_MEASUREMENT_ID
-// } from '@env';
 
 // require('dotenv').config({ path:'../.env'});
 
