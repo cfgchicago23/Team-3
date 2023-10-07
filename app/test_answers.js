@@ -1,3 +1,5 @@
+// Holds all questions, answers, and correct answers. Questions and answers will align with those
+// created by the organization.
 export default data = [
     {
       question: "What should Jan do?",
