@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     fontSize: '20',
   },
   girl: {
-    
-  }
+
+  },
   back_button: {
     position: 'absolute',
     left: '10%',
