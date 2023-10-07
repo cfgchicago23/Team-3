@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Times New Roman'
+    fontWeight: '100',
   },
 });
