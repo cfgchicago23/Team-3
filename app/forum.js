@@ -64,19 +64,21 @@ export default function App() {
           </View>
           <View style={styles.announcements}>
             <Text style={styles.text}><Strong>Announcements</Strong></Text>
-            <View style={styles.announcement_box}>
-              <View style={styles.individual_announcement}>
-                  <Text style={styles.announcement_title}><Strong>First Meetup Soon!</Strong></Text>
-                  <Text>We're going to have our first in-person meetup at Location, Address...</Text>
-              </View>
-              <View style={styles.individual_announcement}>
-                <Text style={styles.announcement_title}><Strong>Welcome to Downtown Club!</Strong></Text>
-                <Text>We are so glad to have you here! :D Feel free to introduce yourself below.</Text>
-              </View>
-              <View style={styles.end_of_announcement}>
-                <Text>End of announcements...</Text>
-              </View>
-            </View>
+            <SafeAreaView style={styles.announcement_box}>
+              <ScrollView>
+                <View style={styles.individual_announcement}>
+                    <Text style={styles.announcement_title}><Strong>First Meetup Soon!</Strong></Text>
+                    <Text>We're going to have our first in-person meetup at Location, Address...</Text>
+                </View>
+                <View style={styles.individual_announcement}>
+                  <Text style={styles.announcement_title}><Strong>Welcome to Downtown Club!</Strong></Text>
+                  <Text>We are so glad to have you here! :D Feel free to introduce yourself below.</Text>
+                </View>
+                <View style={styles.end_of_announcement}>
+                  <Text>End of announcements...</Text>
+                </View>
+              </ScrollView>
+            </SafeAreaView>
           </View>
           <View style={styles.club_members}>
             <Text style={styles.text}><Strong>Downtown Club's Info</Strong></Text>
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   messages_box: {
-    backgroundColor: '#e4c9d4',
+    backgroundColor: '#ebc388',
     height: Dimensions.get('window').height/2,
     paddingTop: 20,
     alignItems: 'center',
@@ -128,10 +130,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   threads_box: {
-    backgroundColor: '#e4c9d4',
+    backgroundColor: '#ebc388',
     height: Dimensions.get('window').height/2,
     alignItems: 'center',
-    borderTopColor: '#e08daf',
+    borderTopColor: '#413626',
     borderTopWidth: 5/2,
     paddingTop: 5
   },
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: 'column',
     height: Dimensions.get('window').height,
-    backgroundColor: '#40add1',
+    backgroundColor: '#e39cbc',
     paddingTop: 20,
     alignItems: 'center'
   },
@@ -154,24 +156,23 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   announcement_box: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f0ead6',
     color: "#c4c4c4", 
     marginTop: 10,
     marginBottom: 10,
-    width: 250,
-    height: 400
+    width: 250
   },
   individual_announcement: {
     padding: 10,
-    borderBottomColor: '#4d4d4d',
+    borderBottomColor: '#413626',
     borderBottomWidth: 1,
   },
   announcement_title: {
-    color: "#5c5c5c"
+    color: "#413626"
   },
   end_of_announcement: {
     flex: 1,
-    justifyContent: 'center',
+    padding: 30,
     alignItems: 'center'
   },
   club_members: {
