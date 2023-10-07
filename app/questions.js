@@ -2,10 +2,13 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import data from "./test_answers";
 
+// General formatting + style for box holding question, as well as count
+// for current question the user is at.
+
 const Questions = ({ index, question }) => {
   return (
     <View style={{}}>
-      {/* Question Counter */}
+      {/* To display question count */}
       <View
         style={{
           flexDirection: "row",
@@ -22,7 +25,7 @@ const Questions = ({ index, question }) => {
         </Text>
       </View>
 
-      {/* Question */}
+      {/* Styling for question */}
       <Text
         style={{
           color: "#333",
