@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     color: '#34495E'
   },
   button: {
-    marginTop: 90,
+    marginTop: 50,
     backgroundColor: '#E74C3C',  // Slightly different shade of red
     padding: 16,
     borderRadius: 50,  // Full rounded edges
