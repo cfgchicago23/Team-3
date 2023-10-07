@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Link } from 'expo-router';
 
 export default function App() {
   // first button handler
   const button1ClickedHandler = () => {
-    console.log("clicked button!")
+    <Link href="/game_level_1">Game 1</Link>
   };
   return (
     //<View>
@@ -16,12 +17,12 @@ export default function App() {
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button1}>
-            <Text>I'm a button</Text>
+              <Link href="/game_level_1">Game 1</Link>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button2}>
-            <Text>I'm another button</Text>
+            <Link href="/game_level_1">Game 2</Link>
           </TouchableOpacity>
         </View>
          {/* -------------------------- ROW 2 --------------------------- */}
@@ -29,7 +30,7 @@ export default function App() {
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button1}>
-            <Text>I'm a button</Text>
+            <Link href="/game_level_1">Game 3</Link>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={button1ClickedHandler}
@@ -74,10 +75,10 @@ const styles = StyleSheet.create({
     marginTop: '7%',
     fontSize: 40,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fbf7ebff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    fontWeight: 900,
+    fontWeight: '100',
     textDecorationLine: 'underline',
     textDecorationColor: 'pink',
   },
