@@ -1,28 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Link } from 'expo-router';
-import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <NavigationContainer>
-        <View style={styles.container}>
-        <Text style={styles.game_level_1_title}>Welcome to Level 1!</Text>
-        <StatusBar style="auto" />
-        {/* Back Button */}
-        <View style={styles.back_button}>
-            <Link href="/game_levels">Back</Link>
-        </View>
-        {/* Translucent background text */}
-        <View>
-        <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
-        </View>
-        <Image
-            style={styles.arrow}
-            source={require('../assets/right-arrow.png')}
-        />
-        </View>
-    </NavigationContainer>
+    <View style={styles.container}>
+    <Text style={styles.game_level_1_title}>Welcome to Level 1!</Text>
+    <StatusBar style="auto" />
+    {/* Back Button */}
+    <View style={styles.back_button}>
+        <Link href="/game_levels">Back</Link>
+    </View>
+    {/* Translucent background text */}
+    <View>
+    <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
+    </View>
+    <Image
+        style={styles.arrow}
+        source={require('../assets/right-arrow.png')}
+    />
+    </View>
   );
 }
 
