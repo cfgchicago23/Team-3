@@ -1,34 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-import Level_1_Component from '../components/Level_1';
 
-function GameLevelsPage() {
-  const [selectedComponent, setSelectedComponent] = useState(null);
-
-  const handleBack = () => {
-    setSelectedComponent(null); 
+export default function App() {
+  // first button handler
+  const button1ClickedHandler = () => {
+    <Link href="/game_level_1">Game 1</Link>
   };
-
-  // Render page according to what "level" the user chooses to play
-  const renderSelectedComponent = () => {
-    switch (selectedComponent) {
-      case 'game_1':
-        return <Level_1_Component onBack={handleBack} />;
-      default:
-        return null;
-    }
-  };
-
-  if (selectedComponent) {
-    return renderSelectedComponent();
-  }
-
-// export default function App() {
-//   // first button handler
-//   const button1ClickedHandler = () => {
-//     <Link href="/game_level_1">Game 1</Link>
-//   };
   return (
     //<View>
       <View style={styles.game_title}>
