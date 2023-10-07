@@ -4,6 +4,9 @@ import data from "./test_answers";
 import ProgressBar from "./progress_bar";
 import Questions from "./questions";
 
+// General page for quiz - includes test_answers, progress_bar, and questions.
+// Incorporates state maintenence for 
+
 const QuizPage = ({ navigation }) => {
   const allQuestions = data;
 
@@ -16,6 +19,7 @@ const QuizPage = ({ navigation }) => {
   const [correctOption, setCorrectOption] = useState(null);
   const [score, setScore] = useState(0);
 
+  // For starting the quiz all over
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -23,6 +27,7 @@ const QuizPage = ({ navigation }) => {
     setCorrectOption(null);
     setIsOptionsDisabled(false);
   };
+  // For showing whether or not an answer is correct
   const validateAnswer = (selectedOption, navigation) => {
     if (isOptionsDisabled == false) {
       let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
@@ -30,11 +35,13 @@ const QuizPage = ({ navigation }) => {
       setCurrentOptionSelected(selectedOption);
       setCorrectOption(correct_option);
       setIsOptionsDisabled(true);
+      // increment score if correct answer was chosen
       if (selectedOption == correct_option) {
         setScore(score + 1);
       }
     }
   };
+  // Displays end result score
   const handleNext = (navigation) => {
     if (currentQuestionIndex == allQuestions.length - 1) {
       navigation.navigate("Result", { score: score });
@@ -44,6 +51,7 @@ const QuizPage = ({ navigation }) => {
       setCorrectOption(null);
       setIsOptionsDisabled(false);
     }
+    // Animations for progress bar and question number
     Animated.parallel([
       Animated.timing(progress, {
         toValue: currentQuestionIndex + 2,
@@ -65,6 +73,7 @@ const QuizPage = ({ navigation }) => {
     ]).start();
   };
 
+  // Rendering for elements displayed on the 
   const renderOptions = (navigation) => {
     return (
       <View style={{ marginTop: 100 }}>
@@ -145,6 +154,7 @@ const QuizPage = ({ navigation }) => {
   );
 };
 
+// Styling for answer boxes
 const styles = StyleSheet.create({
   scrollView: { backgroundColor: "#f0ead6ff" },
   container: {
