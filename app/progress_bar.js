@@ -3,15 +3,16 @@ import { View, Animated, StyleSheet } from "react-native";
 import data from "./test_answers"; 
 
 const ProgressBar = ({ progress }) => {
-//quiz data file imported to get the total number of questions
+// get quiz questions (from test_answers)
   const allQuestions = data;
 
   const progressAnim = progress.interpolate({
     inputRange: [0, allQuestions.length],
     outputRange: ["0%", "100%"],
-  }); //length of progress is initialized with 0 and will go to total length of ques
+  }); // length of progress is initialized with 0 and will go to total length of questions
   return (
     <View style={styles.progressBarContainer}>
+    {/* Animation for progress bar */}
       <Animated.View
         style={[
           {
@@ -27,7 +28,7 @@ const ProgressBar = ({ progress }) => {
     </View>
   );
 };
-
+// Creating and styling the progress bar itself
 const styles = StyleSheet.create({
   progressBarContainer: {
     width: "80%",
