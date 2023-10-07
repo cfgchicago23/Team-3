@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions, SafeAreaView, ScrollView } f
 
 export default function App() {
   /* user list generation */
-  const users = ["User #1", "User #2", "User #3", "User #4", "User #5", "User #6", "User #7", "User #8", "User #9", "User #10", "User #11", "User #12", "User #13", "User #14", "User #15"];
+  const users = ["User #1", "User #2", "User #3", "User #4", "User #5", "User #6", "User #7", "User #8", "User #9", "User #10", "User #11", "Usergit  #12", "User #13", "User #14", "User #15"];
 
   let message_list = [];
 
@@ -24,7 +24,7 @@ export default function App() {
   threads.forEach((thread, index) => {
     thread_list.push(<View key={index} style={styles.message}>
       <View>
-        <Image style={styles.hashtag_icon} source={require('./assets/hashtag-mayor-icons.png')} />
+        <Image style={styles.hashtag_icon} source={require('../assets/hashtag-mayor-icons.png')} />
       </View>
       <View>
         <Text style={styles.thread_info}>{thread}</Text>
