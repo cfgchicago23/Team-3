@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function App() {
   return (
@@ -11,12 +10,10 @@ export default function App() {
         <Text style={styles.game_level_1_title}>Welcome to Level 1!</Text>
         <StatusBar style="auto" />
         {/* Back button */}
-        <TouchableOpacity onPress={onBack} style={styles.goBackButton}>
-            <Text style={styles.arrowText}>&larr; Back</Text> 
-        </TouchableOpacity>
+        <Link href="/game_levels">Back</Link>
         {/* Translucent background text */}
         <View>
-            <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
+            <Text style={styles.text_shaded}>Help Jan navigate her feelings!</Text>
         </View>
         <Image
             style={styles.girl}
@@ -28,7 +25,7 @@ export default function App() {
             source={require('../assets/right-arrow.png')}
         />
     
-        <Link href="/game_level_1_pg_2">Next</Link>
+        <Link href="/test">Next</Link>
 
     </View>
   );
