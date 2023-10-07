@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, Animated, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, Animated, StyleSheet, TouchableOpacity, Link } from "react-native";
 import data from "./test_answers";
 import ProgressBar from "./progress_bar";
 import Questions from "./questions";
