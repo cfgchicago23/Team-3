@@ -1,7 +1,84 @@
 import React from 'react';
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView, AppRegistry } from 'react-native';
+import { Link } from 'expo-router';
+import '../firebaseConfig'
+import ParticipantLandingPage from './ParticipantLandingPage';
+import Login from './Login'
+import { 
+    getAuth,
+    onAuthStateChanged,
+    signOut,
+    signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
-export default function Home() {
+const auth = getAuth();
+
+export default class RootApp extends React.Component {
+  constructor () {
+    super();
+    this.state = { 
+        user: auth.currentUser,
+    }
+  }
+
+  handleSignOut = () => {
+    signOut(auth).then(() => {
+      this.setState({user: null})
+      console.log('logged out')
+    }).catch((error) => {
+        console.log(error); 
+    });   
+  }
+
+  handleSignUp = (email, username, password) => {
+    // TODO: For Firebase auth
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        set(ref(db, 'users/' + user.uid), {
+          displayName: username,
+          email: email
+        });
+    })
+  }
+
+  handleLogin = (email, password) => {
+      // TODO: For Firebase auth
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          this.setState({ user: auth.currentUser });
+      })
+  }
+
+  componentDidMount() {
+    // Add listener here
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+          this.setState({user: user})
+          // console.log('user logged in!')
+      }
+    })
+  }
+
+  render() {
+    return (
+      <>
+        {this.state.user ? (
+          <ParticipantLandingPage onSignOut={this.handleSignOut} />
+        ) : (
+          // <Home onSignup={this.handleSignUp} onLogin={this.handleLogin} />
+          <Login onSignUp={this.handleSignUp} onLogin={this.handleLogin}/>
+        )}
+      </>
+    )
+  };
+}
+
+export function Home(props) {
+
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground source={require('../assets/background.png')} style={styles.backgroundImage}>
@@ -13,17 +90,19 @@ export default function Home() {
         <Text style={styles.description}>
         Empower provides young girls with the tools they need to build healthy and lasting friendships. We work with girls to help them rise up beyond their circumstances, become role models in their communities, and learn how to recognize abuse and exploitation. 
         </Text>
-
         {/* Login Button */}
         <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginText}>Log In</Text>
+          <Link href="/Login"><Text style={styles.loginText}>Log In</Text></Link>
         </TouchableOpacity>
+
+        
+
       </ImageBackground>
     </SafeAreaView>
   );
 }
 
-AppRegistry.registerComponent('Appname', () => Home);
+AppRegistry.registerComponent('Appname', () => RootApp);
 
 const styles = StyleSheet.create({
   container: {
