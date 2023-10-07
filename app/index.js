@@ -87,9 +87,16 @@ export function Home(props) {
 
         {/* Main Content */}
         <Text style={styles.title}>Love. Create. Share.</Text>
-        <Text style={styles.description}>
-        Empower provides young girls with the tools they need to build healthy and lasting friendships. We work with girls to help them rise up beyond their circumstances, become role models in their communities, and learn how to recognize abuse and exploitation. 
-        </Text>
+        
+        <View style={styles.descriptionContainer}>
+          <Text style={styles.description}>
+            Empower provides young girls with the tools they need to build healthy and lasting friendships.{"\n"}
+          </Text>
+          <Text style={styles.description}>
+            We work with girls to help them rise up beyond their circumstances, become role models in their communities, and learn how to recognize abuse and exploitation. 
+          </Text>
+        </View>
+
         {/* Login Button */}
         <TouchableOpacity style={styles.loginButton}>
           <Link href="/Login"><Text style={styles.loginText}>Log In</Text></Link>
@@ -126,10 +133,14 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   description: {
-    marginTop: 30,
-    fontSize: 18,
-    textAlign: 'center',
-    lineHeight: 26,  // Spacing between lines
+    fontSize: 16,
+  },
+  descriptionContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',  // Semi-transparent white
+    padding: 20,  // Padding around the text
+    borderRadius: 10,  // Rounded corners
+    marginTop: 30,  // Some spacing from the title
+    marginBottom: 30,  // Some spacing before the button
   },
   loginButton: {
     marginTop: 90,
