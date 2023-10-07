@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import JoinAClub from './JoinAClub';
-import App from "./game_levels"
+import "./game_levels"
+import Game from './game_levels'
 import Help from "./Help"
 
 export default function ParticipantLandingPage() {
+    const navigation = useNavigation();
     const [selectedComponent, setSelectedComponent] = useState(null);
 
     const handleBack = () => {
@@ -16,43 +19,47 @@ export default function ParticipantLandingPage() {
           case 'findAClub':
             return <JoinAClub onBack={handleBack} />;
           case 'goToModules':
-            return <App onBack={handleBack} />;
+            return <Game onBack={handleBack} />;
           case 'getHelp':
             return <Help onBack={handleBack} />;
           default:
             return null;
         }
       };
-      if (selectedComponent) {
+
+    if (selectedComponent) {
         return renderSelectedComponent();
-      }
+    }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Welcome Person!</Text>
+    return (
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Welcome Person!</Text>
 
-      {/* Button 1 */}
-      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('findAClub')}>
-        <Text style={styles.buttonText}>Find a Club</Text>
-      </TouchableOpacity>
+        {/* Button 1 */}
+        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('findAClub')}>
+          <Text style={styles.buttonText}>Find a Club</Text>
+        </TouchableOpacity>
 
-      {/* Button 2 */}
-      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('goToModules')}>
-        <Text style={styles.buttonText}>Go to Modules</Text>
-      </TouchableOpacity>
+        {/* Button 2 */}
+        {/* <Link href="/game_levels">Play Game!</Link> */}
+        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('goToModules')}>
+          <Text style={styles.buttonText}>Go to Modules</Text>
+        </TouchableOpacity>
 
-      {/* Button 3 */}
-      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('getHelp')}>
-        <Text style={styles.buttonText}>Get Help</Text>
-      </TouchableOpacity>
 
-      {/* Sign Out Button */}
-      <TouchableOpacity style={styles.button} onPress={() => props.onSignOut?.()}>
-        <Text style={styles.buttonText}>Sign Out</Text>
-      </TouchableOpacity>
-    </View>
-  );
+        {/* Button 3 */}
+        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('getHelp')}>
+          <Text style={styles.buttonText}>Get Help</Text>
+        </TouchableOpacity>
+
+        {/* Sign Out Button */}
+        <TouchableOpacity style={styles.button} onPress={() => props.onSignOut?.()}>
+          <Text style={styles.buttonText}>Sign Out</Text>
+        </TouchableOpacity>
+      </View>
+    );
 }
+
 
 const styles = StyleSheet.create({
   container: {

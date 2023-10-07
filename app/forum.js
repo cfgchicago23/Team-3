@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Dimensions, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, SafeAreaView, ScrollView } from 'react-native';
 
-export default function App() {
+export default function Forum( {onBack} ) {
   /* bolding text */
   const Strong = (props) => <Text style={{fontWeight: "bold"}}>{props.children}</Text>
 
@@ -86,6 +86,9 @@ export default function App() {
             <Text style={styles.text}>Club Roster</Text>
           </View>
         </View>
+        <TouchableOpacity onPress={onBack} style={styles.goBackButton}>
+        <Text style={styles.arrowText}>&larr; Back</Text> 
+      </TouchableOpacity>
       </View>
       {/*<Text style={styles.text}>Open up App.js to start working on your app!</Text>*/}
       <StatusBar style="auto" />
@@ -181,5 +184,23 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#ffffff"
+  },
+  goBackButton: {
+    flex: 1,
+    position: 'absolute',
+    left: 200,
+    bottom: -65,         
+    width: 80,           
+    height: 35,          
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15,    
+    backgroundColor: '#E74C3C',
+    zIndex: 1
+  },
+  arrowText: {
+    color: '#fff',
+    fontWeight: '400',
+    fontSize: 18
   }
 });
