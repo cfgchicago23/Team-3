@@ -1,24 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import JoinAClub from './JoinAClub';
+import App from "./game_levels"
+import Help from "./Help"
 
-export default function ParticipantLandingPage(props) {
+export default function ParticipantLandingPage() {
+    const [selectedComponent, setSelectedComponent] = useState(null);
+
+    const handleBack = () => {
+      setSelectedComponent(null); 
+    };
+
+    const renderSelectedComponent = () => {
+        switch (selectedComponent) {
+          case 'findAClub':
+            return <JoinAClub onBack={handleBack} />;
+          case 'goToModules':
+            return <App onBack={handleBack} />;
+          case 'getHelp':
+            return <Help onBack={handleBack} />;
+          default:
+            return null;
+        }
+      };
+      if (selectedComponent) {
+        return renderSelectedComponent();
+      }
 
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Welcome Person!</Text>
 
       {/* Button 1 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Find a Club */}}>
+      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('findAClub')}>
         <Text style={styles.buttonText}>Find a Club</Text>
       </TouchableOpacity>
 
       {/* Button 2 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Go to modules */}}>
+      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('goToModules')}>
         <Text style={styles.buttonText}>Go to Modules</Text>
       </TouchableOpacity>
 
       {/* Button 3 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Get Help */}}>
+      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('getHelp')}>
         <Text style={styles.buttonText}>Get Help</Text>
       </TouchableOpacity>
 
