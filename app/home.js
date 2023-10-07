@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 
-function Home() {
+function Home( {navigation} ) {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground source={require('../assets/background.png')} style={styles.backgroundImage}>
@@ -21,8 +21,8 @@ function Home() {
         </View>
 
         {/* Login Button */}
-        <TouchableOpacity zstyle={styles.loginButton}>
-          <Text style={styles.loginText}>Log In</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
       </ImageBackground>
     </SafeAreaView>
@@ -82,5 +82,7 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
+
+
 
 
