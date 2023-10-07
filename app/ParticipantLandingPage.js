@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Linking, Link } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import JoinAClub from './JoinAClub';
 import "./game_levels"
@@ -42,7 +42,7 @@ export default function ParticipantLandingPage() {
 
         {/* Button 2 */}
         {/* <Link href="/game_levels">Play Game!</Link> */}
-        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('goToModules')}>
+        <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('\game_levels')}>
           <Text style={styles.buttonText}>Go to Modules</Text>
         </TouchableOpacity>
 
