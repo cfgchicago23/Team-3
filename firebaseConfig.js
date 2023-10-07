@@ -1,8 +1,11 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+import { getAuth, initializeAuth, getReactNativePersistence } from "firebase/auth"
+import { getDatabase } from "firebase/database"
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
-require('dotenv').config({ path:'../.env'});
+
+// require('dotenv').config({ path:'../.env'});
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -15,7 +18,9 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
+initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
+export const db = getDatabase(app)
 // For more information on how to access Firebase in your project,
 // see the Firebase documentation: https://firebase.google.com/docs/web/setup#access-firebase

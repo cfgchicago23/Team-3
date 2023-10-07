@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import EvaluationFormComponent from '../components/EvaluationForm';
 import RegisterClubComponent from '../components/RegisterClub';
 import RegisterParticipantComponent from '../components/RegisterParticipant';
+import Forum from '../app/forum'
 
 function ManagementPage() {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -19,6 +20,8 @@ function ManagementPage() {
         return <RegisterClubComponent onBack={handleBack} />;
       case 'evaluationForm':
         return <EvaluationFormComponent onBack={handleBack} />;
+      case 'forum':
+        return <Forum onBack={handleBack} />
       default:
         return null;
     }
@@ -39,6 +42,9 @@ function ManagementPage() {
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('evaluationForm')}>
         <Text style={styles.buttonText}> Fill Out Evaluation Form</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('forum')}>
+        <Text style={styles.buttonText}> Forum</Text>
       </TouchableOpacity>
     </View>
   );

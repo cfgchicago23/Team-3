@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 
-function Home() {
+function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground source={require('../assets/background.png')} style={styles.backgroundImage}>
@@ -21,13 +21,14 @@ function Home() {
         </View>
 
         {/* Login Button */}
-        <TouchableOpacity zstyle={styles.loginButton}>
-          <Text style={styles.loginText}>Log In</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
       </ImageBackground>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,  // Some spacing before the button
   },
   loginButton: {
-    marginTop: 90,
+    marginTop: 10,
     backgroundColor: '#E74C3C',  // Slightly different shade of red
     padding: 16,
     borderRadius: 50,  // Full rounded edges

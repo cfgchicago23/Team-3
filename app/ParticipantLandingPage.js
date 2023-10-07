@@ -1,28 +1,65 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Linking, Link } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import JoinAClub from './JoinAClub';
+import "./game_levels"
+import Game from './game_levels'
+import Help from "./Help"
 
-function ParticipantLandingPage() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Welcome Person!</Text>
+export default function ParticipantLandingPage() {
+    const navigation = useNavigation();
+    const [selectedComponent, setSelectedComponent] = useState(null);
 
-      {/* Button 1 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Find a Club */}}>
-        <Text style={styles.buttonText}>Find a Club</Text>
-      </TouchableOpacity>
+    const handleBack = () => {
+      setSelectedComponent(null); 
+    };
 
-      {/* Button 2 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Go to modules */}}>
-        <Text style={styles.buttonText}>Go to Modules</Text>
-      </TouchableOpacity>
+    const renderSelectedComponent = () => {
+        switch (selectedComponent) {
+          case 'findAClub':
+            return <JoinAClub onBack={handleBack} />;
+          case 'goToModules':
+            return <Game onBack={handleBack} />;
+          case 'getHelp':
+            return <Help onBack={handleBack} />;
+          default:
+            return null;
+        }
+      };
 
-      {/* Button 3 */}
-      <TouchableOpacity style={styles.button} onPress={() => {/* Navigate to Get Help */}}>
-        <Text style={styles.buttonText}>Get Help</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    if (selectedComponent) {
+        return renderSelectedComponent();
+    }
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Welcome Person!</Text>
+
+        {/* Button 1 */}
+        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('findAClub')}>
+          <Text style={styles.buttonText}>Find a Club</Text>
+        </TouchableOpacity>
+
+        {/* Button 2 */}
+        {/* <Link href="/game_levels">Play Game!</Link> */}
+        <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('\game_levels')}>
+          <Text style={styles.buttonText}>Go to Modules</Text>
+        </TouchableOpacity>
+
+
+        {/* Button 3 */}
+        <TouchableOpacity style={styles.button} onPress={() => setSelectedComponent('getHelp')}>
+          <Text style={styles.buttonText}>Get Help</Text>
+        </TouchableOpacity>
+
+        {/* Sign Out Button */}
+        <TouchableOpacity style={styles.button} onPress={() => props.onSignOut?.()}>
+          <Text style={styles.buttonText}>Sign Out</Text>
+        </TouchableOpacity>
+      </View>
+    );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -39,7 +76,7 @@ const styles = StyleSheet.create({
     color: '#34495E'
   },
   button: {
-    marginTop: 90,
+    marginTop: 50,
     backgroundColor: '#E74C3C',  // Slightly different shade of red
     padding: 16,
     borderRadius: 50,  // Full rounded edges
@@ -58,5 +95,3 @@ const styles = StyleSheet.create({
     fontSize: 18  // Bigger font size
   },
 });
-
-export default ParticipantLandingPage;

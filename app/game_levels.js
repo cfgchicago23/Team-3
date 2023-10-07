@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
+
 export default function App() {
 // first button handler
 const button1ClickedHandler = () => {
@@ -68,12 +69,80 @@ const button1ClickedHandler = () => {
   );
 }
 
+
 // <----------------------- STYLING --------------------------->
 const styles = StyleSheet.create({
   // Game title styling
   game_title: {
     marginTop: '7%',
     fontSize: 40,
+    flex: 1,
+    backgroundColor: '#fbf7ebff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    fontWeight: '100',
+  },
+  // Row 1 Positioning
+  screen1: {
+    marginTop: '20%',
+    position: 'absolute',
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  // Row 2 Positioning
+  screen2: {
+    marginTop: '60%',
+    position: 'absolute',
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  // Row 3 Positioning
+  screen3: {
+    marginTop: '100%',
+    position: 'absolute',
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  // Row 4 Positioning
+  screen4: {
+    marginTop: '140%',
+    position: 'absolute',
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  button1: {
+    margin: 'auto',
+    width: 120,
+    height: 120,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    paddingLeft: '10%',
+    margin: '5%',
+    borderRadius: 100,
+    backgroundColor: 'pink',
+    flexDirection: 'row',
+  },
+  button2: {
+    width: 120,
+    height: 120,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    paddingLeft: '10%',
+    margin: '5%',
+    borderRadius: 100,
+    backgroundColor: 'pink',
+    flexDirection: 'row',
+  },
     flex: 1,
     backgroundColor: '#fbf7ebff',
     alignItems: 'center',

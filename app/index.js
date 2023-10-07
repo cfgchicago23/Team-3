@@ -88,3 +88,26 @@ const styles = StyleSheet.create({
 export default Home;
 
 
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './home';
+import RootApp from './Login2'; 
+import Game from './game_levels'
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={RootApp} />
+        <Stack.Screen name="GameLevels" component={Game} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
+
