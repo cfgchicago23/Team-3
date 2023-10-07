@@ -9,6 +9,12 @@ const mockClubs = [
 ];
 
 function JoinAClub() {
+const handleRegistration = () => {
+    // Handle the registration logic, e.g., sending data to the server.
+    console.log('Participant Name:', participantName);
+    console.log('Participant Email:', participantEmail);
+    console.log('Participant Phone:', participantPhone);
+    };
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -93,6 +99,7 @@ function JoinAClub() {
           <TouchableOpacity style={styles.button} onPress={handleJoin}>
             <Text style={styles.buttonText}>Join</Text>
           </TouchableOpacity>
+
         </>
       )}
     </ScrollView>
@@ -124,12 +131,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5
   },
-  button: {
-    backgroundColor: '#E74C3C',
+  Button: {
+    marginTop: 90,
+    backgroundColor: '#ffb6c1',  // Slightly different shade of red
     padding: 16,
-    borderRadius: 50,
-    width: '100%',
+    borderRadius: 50,  // Full rounded edges
     alignItems: 'center',
+    alignSelf: 'center',
+    width: '60%',  // Less width
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
