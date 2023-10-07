@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function App() {
-  // first button handler
-  const button1ClickedHandler = () => {
-    <Link href="/game_level_1">Game 1</Link>
-  };
+// first button handler
+const button1ClickedHandler = () => {
+<Link href="/game_level_1">Game 1</Link>
+};
   return (
     //<View>
       <View style={styles.game_title}>
@@ -35,7 +35,7 @@ export default function App() {
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button2}>
-            <Text>I'm another button</Text>
+            <Text>Game 4</Text>
           </TouchableOpacity>
        </View>
         {/* -------------------------- ROW 3 --------------------------- */}
@@ -43,12 +43,12 @@ export default function App() {
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button1}>
-            <Text>I'm a button</Text>
+            <Text>Game 5</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button2}>
-            <Text>I'm another button</Text>
+            <Text>Game 6</Text>
           </TouchableOpacity>
        </View>
         {/* -------------------------- ROW 4 --------------------------- */}
@@ -56,12 +56,12 @@ export default function App() {
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button1}>
-            <Text>I'm a button</Text>
+            <Text>Game 7</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={button1ClickedHandler}
             style={styles.button2}>
-            <Text>I'm another button</Text>
+            <Text>Game 8</Text>
           </TouchableOpacity>
        </View>
       </View>
@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     fontWeight: '100',
-    textDecorationLine: 'underline',
-    textDecorationColor: 'pink',
   },
   // Row 1 Positioning
   screen1: {
@@ -125,6 +123,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 10,
+    paddingLeft: '10%',
     margin: '5%',
     borderRadius: 100,
     backgroundColor: 'pink',
@@ -136,6 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 10,
+    paddingLeft: '10%',
     margin: '5%',
     borderRadius: 100,
     backgroundColor: 'pink',
