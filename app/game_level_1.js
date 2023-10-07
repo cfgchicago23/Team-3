@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function App() {
   return (
@@ -9,18 +11,25 @@ export default function App() {
         <Text style={styles.game_level_1_title}>Welcome to Level 1!</Text>
         <StatusBar style="auto" />
         {/* Back button */}
-        <View style={styles.back_button}>
-            <Link href="/game_levels">Back</Link>
-        </View>
+        <TouchableOpacity onPress={onBack} style={styles.goBackButton}>
+            <Text style={styles.arrowText}>&larr; Back</Text> 
+        </TouchableOpacity>
         {/* Translucent background text */}
         <View>
-        <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
+            <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
         </View>
+        <Image
+            style={styles.girl}
+            source={require('../assets/Girl.png')}
+        />
         {/* Forward arrow */}
         <Image
             style={styles.arrow}
             source={require('../assets/right-arrow.png')}
-        /><Link href="/game_level_1_pg_2">Submit</Link>
+        />
+    
+        <Link href="/game_level_1_pg_2">Next</Link>
+
     </View>
   );
 }
@@ -45,6 +54,14 @@ const styles = StyleSheet.create({
         padding: '20%',
         margin: '10%',
         fontSize: 20,
+    },
+    // Girl image styling
+    girl: {
+        width: '25%',
+        height: '32%',
+        position: 'absolute',
+        left: '70%',
+        top: '50%',
     },
     // "Next" arrow styling
     arrow: {
