@@ -2,6 +2,8 @@ import React from "react";
 import { View, Animated, StyleSheet } from "react-native";
 import data from "./test_answers"; 
 
+// General animations and styling for quiz's progress bar.
+
 const ProgressBar = ({ progress }) => {
 // get quiz questions (from test_answers)
   const allQuestions = data;
