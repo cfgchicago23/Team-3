@@ -42,18 +42,18 @@ export default class Login extends React.Component {
     // componentWillUnmount() {
     //     this.unsubscribe();
     // }
-    handleSignUp = () => {
-        // TODO: For Firebase auth
-        createUserWithEmailAndPassword(auth, this.state.email, this.state.password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            set(ref(db, 'users/' + user.uid), {
-              displayName: this.state.username,
-              email: this.state.email
-            });
-        })
-    }
+    // handleSignUp = () => {
+    //     // TODO: For Firebase auth
+    //     createUserWithEmailAndPassword(auth, this.state.email, this.state.password)
+    //     .then((userCredential) => {
+    //         // Signed in 
+    //         const user = userCredential.user;
+    //         set(ref(db, 'users/' + user.uid), {
+    //           displayName: this.state.username,
+    //           email: this.state.email
+    //         });
+    //     })
+    // }
 
     // handleLogin = () => {
     //     // TODO: For Firebase auth
