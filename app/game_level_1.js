@@ -16,7 +16,7 @@ export default function App() {
       <Text style={styles.text_shaded}>Help Jan navigate her feelings! dhsdfjhaksjkgshishdfhgdsdfdfhhjhagsdjtgawudghhajsdtuawegdfjashdjtwegtshdjhsudtgsdh,jw</Text>
       </View>
       <Image
-        style={styles.tinyLogo}
+        style={styles.girl}
         source={require('Team-3/assets/right-arrow.png')}
       />
     </View>
@@ -42,6 +42,9 @@ const styles = StyleSheet.create({
     margin: '10%',
     fontSize: '20',
   },
+  girl: {
+    
+  }
   back_button: {
     position: 'absolute',
     left: '10%',
