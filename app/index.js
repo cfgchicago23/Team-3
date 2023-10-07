@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, ImageBackground, Text, StyleSheet, SafeAreaView,TouchableOpacity, } from 'react-native';
 
 function Home() {
   return (
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   description: {
-    fontSize: '16',
+    fontSize: 16,
   },
   descriptionContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0.75)',  // Semi-transparent white
@@ -82,5 +82,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
-

@@ -21,7 +21,7 @@ function Home() {
         </View>
 
         {/* Login Button */}
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity zstyle={styles.loginButton}>
           <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
       </ImageBackground>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   description: {
-    fontSize: '16',
+    fontSize: 16,
   },
   descriptionContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0.75)',  // Semi-transparent white
